@@ -1,5 +1,6 @@
 package com.backend.commerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -18,7 +19,7 @@ public class Product {
     @Column(name = "id")
     private Long id;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private ProductCategory category;
 

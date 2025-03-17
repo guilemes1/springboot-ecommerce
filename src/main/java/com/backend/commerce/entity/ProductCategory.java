@@ -1,5 +1,6 @@
 package com.backend.commerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,6 @@ public class ProductCategory {
     @Column(name = "category_name")
     private String categoryName;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
 }
